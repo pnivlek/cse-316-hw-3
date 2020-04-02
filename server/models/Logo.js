@@ -1,4 +1,4 @@
-var mongoose = require('mongoose');
+var mongoose = require("mongoose");
 
 var LogoSchema = new mongoose.Schema({
   id: String,
@@ -8,4 +8,4 @@ var LogoSchema = new mongoose.Schema({
   lastUpdate: { type: Date, default: Date.now },
 });
 
-module.exports = mongoose.model('Logo', LogoSchema);
+module.exports = mongoose.model("Logo", LogoSchema);
