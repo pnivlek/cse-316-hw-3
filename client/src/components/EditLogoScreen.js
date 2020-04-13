@@ -80,10 +80,6 @@ class EditLogoScreen extends Component {
           if (!this.state.loadedState) {
             this.setState(Object.assign(data["logo"], { loadedState: true }));
           }
-          var disableSubmit = false;
-          if (this.state.text === null || this.state.text.trim() === "") {
-            disableSubmit = true;
-          }
           return (
             <Mutation
               mutation={UPDATE_LOGO}
@@ -217,11 +213,7 @@ class EditLogoScreen extends Component {
                                 this.setState({ margin: e.target.value });
                               }}
                             />
-                            <button
-                              type="submit"
-                              className="btn btn-success"
-                              disabled={disableSubmit}
-                            >
+                            <button type="submit" className="btn btn-success">
                               Submit
                             </button>
                           </form>

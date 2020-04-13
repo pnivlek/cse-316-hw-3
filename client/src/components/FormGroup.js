@@ -17,6 +17,7 @@ class FormGroup extends Component {
           placeholder={this.props.label}
           defaultValue={this.props.defValue}
           onChange={this.props.onChangeCallback}
+          required="required"
         />
       </div>
     );

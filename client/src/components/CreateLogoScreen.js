@@ -55,10 +55,6 @@ class CreateLogoScreen extends Component {
         onCompleted={() => this.props.history.push("/")}
       >
         {(addLogo, { loading, error }) => {
-          var disableSubmit = false;
-          if (this.state.text === null || this.state.text.trim() === "") {
-            disableSubmit = true;
-          }
           return (
             <div className="container">
               <div className="row">
@@ -183,11 +179,7 @@ class CreateLogoScreen extends Component {
                             this.setState({ margin: e.target.value });
                           }}
                         />
-                        <button
-                          type="submit"
-                          className="btn btn-success"
-                          disabled={disableSubmit}
-                        >
+                        <button type="submit" className="btn btn-success">
                           Submit
                         </button>
                       </form>
