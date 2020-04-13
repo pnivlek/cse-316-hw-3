@@ -101,7 +101,7 @@ class CreateLogoScreen extends Component {
                         />
                         <FormGroup
                           param="color"
-                          label="Color"
+                          label="Text Color"
                           formType="color"
                           defValue={this.state.color}
                           onChangeCallback={(e) => {
@@ -203,7 +203,7 @@ class CreateLogoScreen extends Component {
                       color: this.state.color,
                       fontSize: this.state.fontSize,
                       backgroundColor: this.state.backgroundColor,
-                      borderColor: this.state.borderStyle,
+                      borderColor: this.state.borderColor,
                       borderRadius: this.state.borderRadius,
                       borderWidth: this.state.borderWidth,
                       padding: this.state.padding,

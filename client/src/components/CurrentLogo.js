@@ -4,7 +4,7 @@ import "../App.css";
 class CurrentLogo extends Component {
   render() {
     const logoStyle = {
-      color: this.props.logo.textColor,
+      color: this.props.logo.color,
       fontSize: this.props.logo.fontSize + "pt",
       backgroundColor: this.props.logo.backgroundColor,
       borderStyle: "solid",

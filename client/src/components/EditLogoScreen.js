@@ -135,7 +135,7 @@ class EditLogoScreen extends Component {
                             />
                             <FormGroup
                               param="color"
-                              label="Color"
+                              label="Text Color"
                               formType="color"
                               defValue={data.logo.color}
                               onChangeCallback={(e) => {
