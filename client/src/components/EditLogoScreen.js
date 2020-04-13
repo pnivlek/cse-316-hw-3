@@ -10,6 +10,13 @@ const GET_LOGO = gql`
       text
       color
       fontSize
+      backgroundColor
+      borderColor
+      borderRadius
+      borderWidth
+      padding
+      margin
+      lastUpdate
     }
   }
 `;
@@ -46,7 +53,16 @@ const UPDATE_LOGO = gql`
 
 class EditLogoScreen extends Component {
   render() {
-    let text, color, fontSize;
+    let text,
+      color,
+      fontSize,
+      backgroundColor,
+      borderColor,
+      borderRadius,
+      borderWidth,
+      padding,
+      margin;
+    console.log(text);
     return (
       <Query
         query={GET_LOGO}
