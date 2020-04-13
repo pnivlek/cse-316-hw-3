@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import gql from "graphql-tag";
 import { Query, Mutation } from "react-apollo";
-
 import CurrentLogo from "./CurrentLogo";
 import FormGroup from "./FormGroup";
 const GET_LOGO = gql`
@@ -99,6 +98,8 @@ class EditLogoScreen extends Component {
             >
               {(updateLogo, { loading, error }) => (
                 <div className="container">
+                  <div className="row">
+                    <div className="col-4">
                       <div className="card">
                         <div className="card-header">
                           <h4>
@@ -219,6 +220,22 @@ class EditLogoScreen extends Component {
                           {loading && <p>Loading...</p>}
                           {error && <p>Error :( Please try again</p>}
                         </div>
+                      </div>
+                    </div>
+                    <div className="col-8">
+                      <CurrentLogo
+                        logo={{
+                          text: this.state.text,
+                          color: this.state.color,
+                          fontSize: this.state.fontSize,
+                          backgroundColor: this.state.backgroundColor,
+                          borderColor: this.state.borderStyle,
+                          borderRadius: this.state.borderRadius,
+                          borderWidth: this.state.borderWidth,
+                          padding: this.state.padding,
+                          margin: this.state.margin,
+                        }}
+                      />
                     </div>
                   </div>
                 </div>

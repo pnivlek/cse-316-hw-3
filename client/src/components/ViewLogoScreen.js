@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "../App.css";
 import gql from "graphql-tag";
 import { Query, Mutation } from "react-apollo";
+import CurrentLogo from "./CurrentLogo";
 
 const GET_LOGO = gql`
   query logo($logoId: String) {
@@ -44,65 +45,74 @@ class ViewLogoScreen extends Component {
 
           return (
             <div className="container">
-              <div className="panel panel-default">
-                <div className="panel-heading">
-                  <h4>
-                    <Link to="/">Home</Link>
-                  </h4>
-                  <h3 className="panel-title">View Logo</h3>
+              <div className="row">
+                <div className="col-4">
+                  <div className="card ">
+                    <div className="card-header">
+                      <h4>
+                        <Link to="/">Home</Link>
+                      </h4>
+                      <h3 className="card-title">View Logo</h3>
+                    </div>
+                    <div className="card-body">
+                      <dl>
+                        <dt>Text:</dt>
+                        <dd>{data.logo.text}</dd>
+                        <dt>Color:</dt>
+                        <dd>{data.logo.color}</dd>
+                        <dt>Font Size:</dt>
+                        <dd>{data.logo.fontSize}</dd>
+                        <dt>Background Color:</dt>
+                        <dd>{data.logo.backgroundColor}</dd>
+                        <dt>Border Color:</dt>
+                        <dd>{data.logo.borderColor}</dd>
+                        <dt>Border Radius:</dt>
+                        <dd>{data.logo.borderRadius}</dd>
+                        <dt>Border Width:</dt>
+                        <dd>{data.logo.borderWidth}</dd>
+                        <dt>Border Padding:</dt>
+                        <dd>{data.logo.padding}</dd>
+                        <dt>Border Margin:</dt>
+                        <dd>{data.logo.margin}</dd>
+                        <dt>Last Updated:</dt>
+                        <dd>{data.logo.lastUpdate}</dd>
+                      </dl>
+                      <Mutation
+                        mutation={DELETE_LOGO}
+                        key={data.logo._id}
+                        onCompleted={() => this.props.history.push("/")}
+                      >
+                        {(removeLogo, { loading, error }) => (
+                          <div>
+                            <form
+                              onSubmit={(e) => {
+                                e.preventDefault();
+                                removeLogo({
+                                  variables: { id: data.logo._id },
+                                });
+                              }}
+                            >
+                              <Link
+                                to={`/edit/${data.logo._id}`}
+                                className="btn btn-success"
+                              >
+                                Edit
+                              </Link>
+                              &nbsp;
+                              <button type="submit" className="btn btn-danger">
+                                Delete
+                              </button>
+                            </form>
+                            {loading && <p>Loading...</p>}
+                            {error && <p>Error :( Please try again</p>}
+                          </div>
+                        )}
+                      </Mutation>
+                    </div>
+                  </div>
                 </div>
-                <div className="panel-body">
-                  <dl>
-                    <dt>Text:</dt>
-                    <dd>{data.logo.text}</dd>
-                    <dt>Color:</dt>
-                    <dd>{data.logo.color}</dd>
-                    <dt>Font Size:</dt>
-                    <dd>{data.logo.fontSize}</dd>
-                    <dt>Background Color:</dt>
-                    <dd>{data.logo.backgroundColor}</dd>
-                    <dt>Border Color:</dt>
-                    <dd>{data.logo.borderColor}</dd>
-                    <dt>Border Radius:</dt>
-                    <dd>{data.logo.borderRadius}</dd>
-                    <dt>Border Width:</dt>
-                    <dd>{data.logo.borderWidth}</dd>
-                    <dt>Border Padding:</dt>
-                    <dd>{data.logo.padding}</dd>
-                    <dt>Border Margin:</dt>
-                    <dd>{data.logo.margin}</dd>
-                    <dt>Last Updated:</dt>
-                    <dd>{data.logo.lastUpdate}</dd>
-                  </dl>
-                  <Mutation
-                    mutation={DELETE_LOGO}
-                    key={data.logo._id}
-                    onCompleted={() => this.props.history.push("/")}
-                  >
-                    {(removeLogo, { loading, error }) => (
-                      <div>
-                        <form
-                          onSubmit={(e) => {
-                            e.preventDefault();
-                            removeLogo({ variables: { id: data.logo._id } });
-                          }}
-                        >
-                          <Link
-                            to={`/edit/${data.logo._id}`}
-                            className="btn btn-success"
-                          >
-                            Edit
-                          </Link>
-                          &nbsp;
-                          <button type="submit" className="btn btn-danger">
-                            Delete
-                          </button>
-                        </form>
-                        {loading && <p>Loading...</p>}
-                        {error && <p>Error :( Please try again</p>}
-                      </div>
-                    )}
-                  </Mutation>
+                <div className="col-8">
+                  <CurrentLogo logo={data.logo} />
                 </div>
               </div>
             </div>
