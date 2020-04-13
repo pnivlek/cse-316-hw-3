@@ -25,24 +25,33 @@ class HomeScreen extends Component {
           return (
             <div className="container row">
               <div className="col s4">
-                <h3>Recent Work</h3>
-                {data.logos.map((logo, index) => (
-                  <div
-                    key={index}
-                    className="home_logo_link"
-                    style={{ cursor: "pointer" }}
-                  >
-                    <Link className="btn btn-primary" to={`/view/${logo._id}`}>
-                      {logo.text}
-                    </Link>
+                <div className="card">
+                  <div className="card-header">
+                    <h4 className="card-title">Recent Work</h4>
                   </div>
-                ))}
+                  <div className="card-body">
+                    {data.logos.map((logo, index) => (
+                      <div
+                        key={index}
+                        className="home_logo_link"
+                        style={{ cursor: "pointer" }}
+                      >
+                        <Link
+                          className="btn btn-primary"
+                          to={`/view/${logo._id}`}
+                        >
+                          {logo.text}
+                        </Link>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
-              <div className="col s8">
+              <div className="col-8">
                 <div id="home_banner_container">
-                  @todo
+                  goLogoLo
                   <br />
-                  List Maker
+                  Logo Maker
                 </div>
                 <div>
                   <Link
