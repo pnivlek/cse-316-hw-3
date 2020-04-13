@@ -75,7 +75,9 @@ class ViewLogoScreen extends Component {
                         <dt>Border Margin:</dt>
                         <dd>{data.logo.margin}</dd>
                         <dt>Last Updated:</dt>
-                        <dd>{data.logo.lastUpdate}</dd>
+                        <dd>
+                          {new Date(data.logo.lastUpdate).toLocaleString()}
+                        </dd>
                       </dl>
                       <Mutation
                         mutation={DELETE_LOGO}
