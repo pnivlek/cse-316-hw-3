@@ -52,6 +52,21 @@ const UPDATE_LOGO = gql`
 `;
 
 class EditLogoScreen extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      loadedState: false,
+      text: null,
+      color: null,
+      fontSize: null,
+      backgroundColor: null,
+      borderColor: null,
+      borderRadius: null,
+      borderWidth: null,
+      padding: null,
+      margin: null,
+    };
+  }
   render() {
     let text,
       color,
@@ -71,7 +86,9 @@ class EditLogoScreen extends Component {
         {({ loading, error, data }) => {
           if (loading) return "Loading...";
           if (error) return `Error! ${error.message}`;
-
+          if (!this.state.loadedState) {
+            this.setState(Object.assign(data["logo"], { loadedState: true }));
+          }
           return (
             <Mutation
               mutation={UPDATE_LOGO}
