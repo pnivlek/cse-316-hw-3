@@ -69,16 +69,6 @@ class EditLogoScreen extends Component {
     };
   }
   render() {
-    let text,
-      color,
-      fontSize,
-      backgroundColor,
-      borderColor,
-      borderRadius,
-      borderWidth,
-      padding,
-      margin;
-    console.log(text);
     return (
       <Query
         query={GET_LOGO}
