@@ -145,7 +145,9 @@ class EditLogoScreen extends Component {
                             <FormGroup
                               param="fontSize"
                               label="Font Size"
-                              formType="text"
+                              formType="number"
+                              min="1"
+                              max="128"
                               defValue={data.logo.fontSize}
                               onChangeCallback={(e) => {
                                 this.setState({ fontSize: e.target.value });
@@ -173,7 +175,10 @@ class EditLogoScreen extends Component {
                             />
                             <FormGroup
                               param="borderRadius"
-                              formType="text"
+                              label="Border Radius"
+                              formType="number"
+                              min="0"
+                              max="100"
                               defValue={data.logo.borderRadius}
                               onChangeCallback={(e) => {
                                 this.setState({ borderRadius: e.target.value });
@@ -182,7 +187,9 @@ class EditLogoScreen extends Component {
                             <FormGroup
                               param="borderWidth"
                               label="Border Width"
-                              formType="text"
+                              formType="number"
+                              min="0"
+                              max="256"
                               defValue={data.logo.borderWidth}
                               onChangeCallback={(e) => {
                                 this.setState({ borderWidth: e.target.value });
@@ -191,7 +198,9 @@ class EditLogoScreen extends Component {
                             <FormGroup
                               param="padding"
                               label="Border Padding"
-                              formType="text"
+                              formType="number"
+                              min="0"
+                              max="256"
                               defValue={data.logo.padding}
                               onChangeCallback={(e) => {
                                 this.setState({ padding: e.target.value });
@@ -200,7 +209,9 @@ class EditLogoScreen extends Component {
                             <FormGroup
                               param="margin"
                               label="Border Margin"
-                              formType="text"
+                              formType="number"
+                              min="0"
+                              max="256"
                               defValue={data.logo.margin}
                               onChangeCallback={(e) => {
                                 this.setState({ margin: e.target.value });
