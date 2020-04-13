@@ -105,67 +105,119 @@ class EditLogoScreen extends Component {
                       <h3 className="panel-title">Edit Logo</h3>
                     </div>
                     <div className="panel-body">
-                      <form
-                        onSubmit={(e) => {
-                          e.preventDefault();
-                          updateLogo({
-                            variables: {
-                              id: data.logo._id,
-                              text: text.value,
-                              color: color.value,
-                              fontSize: parseInt(fontSize.value),
-                            },
-                          });
-                          text.value = "";
-                          color.value = "";
-                          fontSize.value = "";
-                        }}
-                      >
-                        <div className="form-group">
-                          <label htmlFor="text">Text:</label>
-                          <input
-                            type="text"
-                            className="form-control"
-                            name="text"
-                            ref={(node) => {
-                              text = node;
-                            }}
-                            placeholder="Text"
-                            defaultValue={data.logo.text}
-                          />
                         </div>
-                        <div className="form-group">
-                          <label htmlFor="color">Color:</label>
-                          <input
-                            type="color"
-                            className="form-control"
-                            name="color"
-                            ref={(node) => {
-                              color = node;
+                          <form
+                            onSubmit={(e) => {
+                              e.preventDefault();
+                              updateLogo({
+                                variables: {
+                                  id: data.logo._id,
+                                  text: this.state.text,
+                                  color: this.state.color,
+                                  fontSize: parseInt(this.state.fontSize),
+                                  backgroundColor: this.state.backgroundColor,
+                                  borderColor: this.state.borderColor,
+                                  borderRadius: parseInt(
+                                    this.state.borderRadius
+                                  ),
+                                  borderWidth: parseInt(this.state.borderWidth),
+                                  padding: parseInt(this.state.padding),
+                                  margin: parseInt(this.state.margin),
+                                },
+                              });
                             }}
-                            placeholder="Color"
-                            defaultValue={data.logo.color}
-                          />
+                          >
+                            <FormGroup
+                              htmlFor="text"
+                              param="text"
+                              label="Text"
+                              formType="text"
+                              defValue={data.logo.text}
+                              onChangeCallback={(e) => {
+                                this.setState({ text: e.target.value });
+                              }}
+                            />
+                            <FormGroup
+                              param="color"
+                              label="Color"
+                              formType="color"
+                              defValue={data.logo.color}
+                              onChangeCallback={(e) => {
+                                this.setState({ color: e.target.value });
+                              }}
+                            />
+                            <FormGroup
+                              param="fontSize"
+                              label="Font Size"
+                              formType="text"
+                              defValue={data.logo.fontSize}
+                              onChangeCallback={(e) => {
+                                this.setState({ fontSize: e.target.value });
+                              }}
+                            />
+                            <FormGroup
+                              param="backgroundColor"
+                              label="Background Color"
+                              formType="color"
+                              defValue={data.logo.backgroundColor}
+                              onChangeCallback={(e) => {
+                                this.setState({
+                                  backgroundColor: e.target.value,
+                                });
+                              }}
+                            />
+                            <FormGroup
+                              param="borderColor"
+                              label="Border Color"
+                              formType="color"
+                              defValue={data.logo.borderColor}
+                              onChangeCallback={(e) => {
+                                this.setState({ borderColor: e.target.value });
+                              }}
+                            />
+                            <FormGroup
+                              param="borderRadius"
+                              label="Border Radius"
+                              formType="text"
+                              defValue={data.logo.borderRadius}
+                              onChangeCallback={(e) => {
+                                this.setState({ borderRadius: e.target.value });
+                              }}
+                            />
+                            <FormGroup
+                              param="borderWidth"
+                              label="Border Width"
+                              formType="text"
+                              defValue={data.logo.borderWidth}
+                              onChangeCallback={(e) => {
+                                this.setState({ borderWidth: e.target.value });
+                              }}
+                            />
+                            <FormGroup
+                              param="padding"
+                              label="Border Padding"
+                              formType="text"
+                              defValue={data.logo.padding}
+                              onChangeCallback={(e) => {
+                                this.setState({ padding: e.target.value });
+                              }}
+                            />
+                            <FormGroup
+                              param="margin"
+                              label="Border Margin"
+                              formType="text"
+                              defValue={data.logo.margin}
+                              onChangeCallback={(e) => {
+                                this.setState({ margin: e.target.value });
+                              }}
+                            />
+                            <button type="submit" className="btn btn-success">
+                              Submit
+                            </button>
+                          </form>
+                          {loading && <p>Loading...</p>}
+                          {error && <p>Error :( Please try again</p>}
                         </div>
-                        <div className="form-group">
-                          <label htmlFor="fontSize">Font Size:</label>
-                          <input
-                            type="text"
-                            className="form-control"
-                            name="fontSize"
-                            ref={(node) => {
-                              fontSize = node;
-                            }}
-                            placeholder="Font Size"
-                            defaultValue={data.logo.fontSize}
-                          />
-                        </div>
-                        <button type="submit" className="btn btn-success">
-                          Submit
-                        </button>
-                      </form>
-                      {loading && <p>Loading...</p>}
-                      {error && <p>Error :( Please try again</p>}
                     </div>
                   </div>
                 </div>
