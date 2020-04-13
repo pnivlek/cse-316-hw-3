@@ -97,15 +97,14 @@ class EditLogoScreen extends Component {
             >
               {(updateLogo, { loading, error }) => (
                 <div className="container">
-                  <div className="panel panel-default">
-                    <div className="panel-heading">
-                      <h4>
-                        <Link to="/">Home</Link>
-                      </h4>
-                      <h3 className="panel-title">Edit Logo</h3>
-                    </div>
-                    <div className="panel-body">
+                      <div className="card">
+                        <div className="card-header">
+                          <h4>
+                            <Link to="/">Home</Link>
+                          </h4>
+                          <h3 className="card-title">Edit Logo</h3>
                         </div>
+                        <div className="card-body">
                           <form
                             onSubmit={(e) => {
                               e.preventDefault();
