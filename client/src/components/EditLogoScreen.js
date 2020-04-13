@@ -20,8 +20,25 @@ const UPDATE_LOGO = gql`
     $text: String!
     $color: String!
     $fontSize: Int!
+    $backgroundColor: String!
+    $borderColor: String!
+    $borderRadius: Int!
+    $borderWidth: Int!
+    $padding: Int!
+    $margin: Int!
   ) {
-    updateLogo(id: $id, text: $text, color: $color, fontSize: $fontSize) {
+    updateLogo(
+      id: $id
+      text: $text
+      color: $color
+      fontSize: $fontSize
+      backgroundColor: $backgroundColor
+      borderColor: $borderColor
+      borderRadius: $borderRadius
+      borderWidth: $borderWidth
+      padding: $padding
+      margin: $margin
+    ) {
       lastUpdate
     }
   }
