@@ -4,8 +4,28 @@ import { Mutation } from "react-apollo";
 import { Link } from "react-router-dom";
 
 const ADD_LOGO = gql`
-  mutation AddLogo($text: String!, $color: String!, $fontSize: Int!) {
-    addLogo(text: $text, color: $color, fontSize: $fontSize) {
+  mutation AddLogo(
+    $text: String!
+    $color: String!
+    $fontSize: Int!
+    $backgroundColor: String!
+    $borderColor: String!
+    $borderRadius: Int!
+    $borderWidth: Int!
+    $padding: Int!
+    $margin: Int!
+  ) {
+    addLogo(
+      text: $text
+      color: $color
+      fontSize: $fontSize
+      backgroundColor: $backgroundColor
+      borderColor: $borderColor
+      borderRadius: $borderRadius
+      borderWidth: $borderWidth
+      padding: $padding
+      margin: $margin
+    ) {
       _id
     }
   }
