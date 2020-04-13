@@ -30,20 +30,25 @@ class HomeScreen extends Component {
                     <h4 className="card-title">Recent Work</h4>
                   </div>
                   <div className="card-body">
-                    {data.logos.map((logo, index) => (
-                      <div
-                        key={index}
-                        className="home_logo_link"
-                        style={{ cursor: "pointer" }}
-                      >
-                        <Link
-                          className="btn btn-primary"
-                          to={`/view/${logo._id}`}
+                    {data.logos
+                      .sort(
+                        (logo, logo2) =>
+                          new Date(logo2.lastUpdate) - new Date(logo.lastUpdate)
+                      )
+                      .map((logo, index) => (
+                        <div
+                          key={index}
+                          className="home_logo_link"
+                          style={{ cursor: "pointer" }}
                         >
-                          {logo.text}
-                        </Link>
-                      </div>
-                    ))}
+                          <Link
+                            className="btn btn-primary"
+                            to={`/view/${logo._id}`}
+                          >
+                            {logo.text}
+                          </Link>
+                        </div>
+                      ))}
                   </div>
                 </div>
               </div>
