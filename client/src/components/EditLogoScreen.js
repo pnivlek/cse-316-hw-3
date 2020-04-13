@@ -169,7 +169,6 @@ class EditLogoScreen extends Component {
                             />
                             <FormGroup
                               param="borderRadius"
-                              label="Border Radius"
                               formType="text"
                               defValue={data.logo.borderRadius}
                               onChangeCallback={(e) => {
