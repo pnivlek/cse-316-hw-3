@@ -108,8 +108,8 @@ class CreateLogoScreen extends Component {
                           param="fontSize"
                           label="Font Size"
                           formType="number"
-                          min="1"
-                          max="128"
+                          min="2"
+                          max="144"
                           defValue={this.state.fontSize}
                           onChangeCallback={(e) => {
                             this.setState({ fontSize: e.target.value });
