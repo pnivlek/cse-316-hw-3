@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import "../App.css";
+import { Link } from "react-router-dom";
 import gql from "graphql-tag";
 import { Query } from "react-apollo";
 
@@ -32,7 +32,9 @@ class HomeScreen extends Component {
                     className="home_logo_link"
                     style={{ cursor: "pointer" }}
                   >
-                    <Link to={`/view/${logo._id}`}>{logo.text}</Link>
+                    <Link className="btn btn-primary" to={`/view/${logo._id}`}>
+                      {logo.text}
+                    </Link>
                   </div>
                 ))}
               </div>
@@ -43,7 +45,11 @@ class HomeScreen extends Component {
                   List Maker
                 </div>
                 <div>
-                  <Link id="add_logo_button" to="/create">
+                  <Link
+                    id="add_logo_button"
+                    to="/create"
+                    className="btn btn-primary"
+                  >
                     Add Logo
                   </Link>
                 </div>
