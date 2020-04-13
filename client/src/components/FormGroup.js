@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 
 class FormGroup extends Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     return (
       <div className="form-group">
