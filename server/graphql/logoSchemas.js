@@ -1,7 +1,6 @@
 var GraphQLSchema = require("graphql").GraphQLSchema;
 var GraphQLObjectType = require("graphql").GraphQLObjectType;
 var GraphQLList = require("graphql").GraphQLList;
-var GraphQLObjectType = require("graphql").GraphQLObjectType;
 var GraphQLNonNull = require("graphql").GraphQLNonNull;
 var GraphQLID = require("graphql").GraphQLID;
 var GraphQLString = require("graphql").GraphQLString;
