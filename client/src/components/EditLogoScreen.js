@@ -219,7 +219,7 @@ class EditLogoScreen extends Component {
                         </div>
                       </div>
                     </div>
-                    <div className="col-8">
+                    <div className="spanFl">
                       <CurrentLogo
                         logo={{
                           text: this.state.text,

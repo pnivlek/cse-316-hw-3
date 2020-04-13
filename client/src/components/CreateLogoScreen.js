@@ -177,20 +177,20 @@ class CreateLogoScreen extends Component {
                   </div>
                 </div>
               </div>
-              <div className="col-8">
-                <CurrentLogo
-                  logo={{
-                    text: this.state.text,
-                    color: this.state.color,
-                    fontSize: this.state.fontSize,
-                    backgroundColor: this.state.backgroundColor,
-                    borderColor: this.state.borderStyle,
-                    borderRadius: this.state.borderRadius,
-                    borderWidth: this.state.borderWidth,
-                    padding: this.state.padding,
-                    margin: this.state.margin,
-                  }}
-                />
+                <div className="spanFl">
+                  <CurrentLogo
+                    logo={{
+                      text: this.state.text,
+                      color: this.state.color,
+                      fontSize: this.state.fontSize,
+                      backgroundColor: this.state.backgroundColor,
+                      borderColor: this.state.borderStyle,
+                      borderRadius: this.state.borderRadius,
+                      borderWidth: this.state.borderWidth,
+                      padding: this.state.padding,
+                      margin: this.state.margin,
+                    }}
+                  />
               </div>
             </div>
           </div>
