@@ -111,7 +111,7 @@ class ViewLogoScreen extends Component {
                     </div>
                   </div>
                 </div>
-                <div className="col-8">
+                <div className="spanFl">
                   <CurrentLogo logo={data.logo} />
                 </div>
               </div>
